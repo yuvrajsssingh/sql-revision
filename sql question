@@ -1,0 +1,48 @@
+use sakila;-- 
+select current_date(),curtime(),current_timestamp() from dual;
+select now(),adddate(now(),interval 2 month) from dual;
+select now(),adddate(now(),2) from dual;
+select datediff(now(),"2024-11-28") from dual;
+select last_day(now()) from dual;
+select month (now()) from dual;
+
+select date_format(now(),"current date is %h %a %m") from dual;
+-- multi-row function
+select * from payment;-- 
+select customer_id,sum(amount),count(*) from pyment;
+
+-- mujhw her ek staff ne kitne customer ne deal kiya
+select staff_id,count(customer_id) from payment group by staff_id;  
+-- you have to find out the total number of payments , total amount spent and total number of customer serve in each month
+select month (payment_date),sum(amount),count(*) from payment 
+group by month (payment_date);
+-- Having
+select month (payment_date),sum(amount),count(*) from payment 
+group by month (payment_date)
+having count(*)>2000;
+
+select * from address;
+select count(address_id) from address;
+select count(address2) from address;
+
+-- get the each district name,the total district present and the sum of city_id for each district 
+select district,count(district),sum(city_id) from address
+group by district;
+
+-- desinding or ascending order
+
+-- subquary 
+select * from payment where amount=(select amount from payment where payment_id=3);
+
+-- get the payment id ,staff id ,rantal id and amount only for that paye,met where the rental id is greater then the rantal id of paymanet id 4 
+select * from payment 
+where rental_id>(select rental_id from payment where payment_id=4);
+
+-- get the paymemnt id ,amount , the 10% incriment of amount for thos payment where the month of payment date is ewqual to the month of payment id 5  
+select payment_id , amount ,amount*1.1 from payment 
+where month(payment_date)=(select month(payment_date) from payment where payment_id=5);
+
+-- get the customer id and the total number of payment done by each coustomer only for those whos total number payment should be grater than the total number of payment done by coustomer id 2 
+select customer_id , sum(amount) from payment
+group by customer_id
+having sum(amount)>(select sum(amount) from payment where customer_id=2) -- single row subquary
