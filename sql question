@@ -31,6 +31,89 @@ group by district;
 
 -- desinding or ascending order
 
+
+-- foreign key
+create database regexconst;
+use regexconst;
+create table product(pid int primary key,
+pname varchar(20),price int);
+insert into product values
+ (10,"tv",100),
+(20,"mobile",200),
+(30,"gyser",4000),
+(40,"yash",5000);
+
+create table orders(oid int,
+city varchar(20),product_id int,
+foreign key (product_id) references product (pid));
+
+
+insert into orders values
+(1991,"jaipur",10),
+(1992,"goa",20),
+(1993,"uk",10),
+(1994,"shimla",40);
+
+select * from orders;
+
+-- DDL ==> Data defination language
+-- create , drop , truncate ,alter
+-- create
+create table test (id int,name1 varchar(20));
+insert into test values(10,"tushar");
+insert into test(name1) values ("tushar");
+insert into test values(20,"yuvraj");
+insert into test values(30,"ram");
+
+
+-- update 
+update test set name1="xyz" where id=10;
+select * from test;
+
+-- delete 
+delete from test where id is null;
+select * from test;
+
+-- drop 
+drop table test;
+
+-- truncate
+truncate test;
+
+-- alter
+create table company(id int);
+insert into company values (10);
+select * from company;
+-- add table column
+alter table company 
+add column phone varchar(15);
+select * from company;
+insert into company(phone) values("samsung");
+
+-- delete any column
+alter table company drop column phone;
+select * from company;
+
+-- rename table
+rename table company to newcompany;
+select * from newcompany;
+
+-- rename column 
+alter table newcompany 
+rename column id to ids;
+select * from newcompany;
+
+-- drop primary key
+alter table newcompany
+add constraint regex_compay_uk unique (ids);
+
+-- cahnge data type
+alter table newcompany modify ids double;
+
+alter table newcompany
+change ids newids varchar(6);
+
+
 -- subquary 
 select * from payment where amount=(select amount from payment where payment_id=3);
 
