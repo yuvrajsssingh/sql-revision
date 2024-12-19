@@ -137,3 +137,20 @@ select username,count(*),dense_rank() over() as rankk from users join photos on 
 group by username
 order by count(*) desc;
 
+-- tcl(tracsaction control language)
+-- Transaction => any logical task
+-- if start any dml tast the taransaction is start
+-- if we satrt ddl, dcl, and commit and rollback command transaction will end
+set @@autocommit=0;
+use regex;
+create table tushar(eid int);
+insert into tushar values(30);
+select * from tushar;
+commit;
+savepoint regex_insert;
+delete from tushar where eid=20;
+rollback to regex_insert;
+select * from tushar;
+
+
+
