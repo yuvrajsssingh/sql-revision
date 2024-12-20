@@ -152,5 +152,24 @@ delete from tushar where eid=20;
 rollback to regex_insert;
 select * from tushar;
 
+-- DCL(data control language)
+-- permissions
+create user bob identified by 'bob';
+
+create table sakila.test(id int);
+insert into sakila.test values(10);
+select * from sakila.test;
+grant all privileges on sakila.test to bob;
+
+select * from mysql.user;
+flush privileges;
+show grants for 'bob';
+
+revoke all privileges on sakila.test from bob;
+show grants for bob;
+
+-- creating role
+create role sales1;
+grant select on sakila.* to sales1;
 
 
