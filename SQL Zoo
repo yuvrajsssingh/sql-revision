@@ -20,3 +20,17 @@ SELECT name FROM world
 (6).
 SELECT name FROM world
   WHERE name LIKE '%x%'
+
+(7).
+SELECT name FROM world
+  WHERE name LIKE '%land'
+
+(8).
+SELECT name FROM world
+  WHERE name LIKE 'c%' and name like "%ia"
+
+(9).
+SELECT name FROM world
+  WHERE name LIKE '%oo%'
+
+
