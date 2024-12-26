@@ -33,4 +33,55 @@ SELECT name FROM world
 SELECT name FROM world
   WHERE name LIKE '%oo%'
 
+(10).
+SELECT name
+FROM world
+WHERE name LIKE '%A%A%A%'
+   OR name LIKE '%a%a%a%';
+
+(11).
+SELECT name FROM world
+ WHERE name LIKE '_t%'
+ORDER BY name
+
+(12).
+SELECT name FROM world
+ WHERE name LIKE '%o__o%'
+
+(13).
+SELECT name
+FROM world
+WHERE LENGTH(name) = 4;
+
+(14).
+SELECT name
+  FROM world
+ WHERE name = capital
+
+(15).
+select name from world where capital=concat(name," City");
+
+(16).
+SELECT capital, name
+FROM world
+WHERE capital LIKE CONCAT('%', name, '%');
+
+(17).
+select capital , name from world
+where CHAR_LENGTH(capital)>CHAR_LENGTH(name)
+AND capital LIKE CONCAT(name, '%');
+
+(18).
+SELECT 
+    name, 
+     
+    SUBSTRING(capital,LENGTH(name) + 1) AS extension
+FROM 
+    world
+WHERE 
+    LENGTH(capital) > LENGTH(name)
+    AND capital LIKE CONCAT(name, '%')
+    AND LENGTH(SUBSTRING(capital, LENGTH(name) + 1)) > 0;
+
+
 
