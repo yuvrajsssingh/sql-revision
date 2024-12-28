@@ -83,5 +83,16 @@ WHERE
     AND capital LIKE CONCAT(name, '%')
     AND LENGTH(SUBSTRING(capital, LENGTH(name) + 1)) > 0;
 
+(19).
+SELECT name, continent, population FROM world
+
+(20).
+select name from world 
+where population >=200000000
+
+(21).
+select name,(gdp/population) from world 
+where population >=200000000
+
 
 
