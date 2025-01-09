@@ -94,5 +94,9 @@ where population >=200000000
 select name,(gdp/population) from world 
 where population >=200000000
 
+(22).
+select name,(population/1000000) from world 
+where continent='South America'
+
 
 
