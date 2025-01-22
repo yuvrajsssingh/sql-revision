@@ -118,6 +118,10 @@ WHERE
     OR 
     (population > 250000000 AND area <= 3000000) 
 
+(27).
+select name,	ROUND(population/1000000.0,2),ROUND(gdp/1000000000.0,2)
+from world where continent='South America'
+
 
 
 
