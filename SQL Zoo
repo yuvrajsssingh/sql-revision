@@ -122,6 +122,20 @@ WHERE
 select name,	ROUND(population/1000000.0,2),ROUND(gdp/1000000000.0,2)
 from world where continent='South America'
 
+(28)
+SELECT yr, subject, winner
+  FROM nobel
+ WHERE yr = 1950
+
+(29)
+SELECT winner
+  FROM nobel
+ WHERE yr = 1962
+   AND subject = 'literature'
+
+(30)
+select yr,subject from nobel where winner="Albert Einstein"
+
 
 
 
