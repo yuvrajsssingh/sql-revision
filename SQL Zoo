@@ -139,6 +139,11 @@ select yr,subject from nobel where winner="Albert Einstein"
 (31)
 select winner from nobel where yr>=2000 and subject='peace'
 
+(32)
+select winner from nobel where yr>=2000 and subject='peace'
+
+
+
 
 
 
