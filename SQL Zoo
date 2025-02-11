@@ -146,6 +146,10 @@ select winner from nobel where yr>=2000 and subject='peace'
 select winner from nobel where yr>=2000 and subject='peace'
 
 
+(34)
+select winner from nobel where yr>=2000 and subject='peace'
+
+
 
 
 
